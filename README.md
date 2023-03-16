@@ -10,7 +10,7 @@ This packages manages changing your theme during runtime and persiting that them
 
 ```
 dependencies:
-  dynamic_theme_nullsafe: ^1.0.4
+  dynamic_theme_nullsafe: ^1.0.5
 ```
 
 run packages get and import it
