@@ -1,7 +1,7 @@
 name: dynamic_theme_nullsafe
 description: Changes the theme during runtime, also presists brightness settings across restarts
 version: 1.0.3
-homepage: 'https://github.com/Norbert515/dynamic_theme'
+homepage: https://github.com/ehtsham623/dynamic_theme_nullsafe
 
 environment:
   # Works in Dart 1 (starting with 1.20.1), and works in Dart 2 and Dart 3.
