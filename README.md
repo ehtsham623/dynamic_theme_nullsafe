@@ -10,19 +10,13 @@ This packages manages changing your theme during runtime and persiting that them
 
 ```
 dependencies:
-  dynamic_theme_nullsafe: ^1.0.3
+  dynamic_theme_nullsafe: ^1.0.4
 ```
 
 run packages get and import it
 
 ```
 import 'package:dynamic_theme_nullsafe/dynamic_theme_nullsafe.dart';
-```
-
-if you want the dialog:
-
-```
-import 'package:dynamic_theme_nullsafe/theme_switcher_widgets.dart';
 ```
 
 ## Usage
@@ -34,19 +28,25 @@ Wrap your material app like this:
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new DynamicTheme(
-      defaultBrightness: Brightness.light,
-      data: (brightness) => new ThemeData(
+    return DynamicThemeNullsafe(
+      defaultThemeMode: ThemeMode.light,
+      loadThemeOnStart: true,
+      data: (mode) => ThemeData(
         primarySwatch: Colors.indigo,
-        brightness: brightness,
+        brightness: mode == ThemeMode.dark ? Brightness.dark : Brightness.light,
       ),
-      themedWidgetBuilder: (context, theme) {
-        return new MaterialApp(
+      themedWidgetBuilder: (
+        BuildContext context,
+        ThemeMode mode,
+        ThemeData? data,
+      ) {
+        return MaterialApp(
+          themeMode: mode,
           title: 'Flutter Demo',
-          theme: theme,
-          home: new MyHomePage(title: 'Flutter Demo Home Page'),
+          theme: data,
+          home: const MyHomePage(title: 'Flutter Demo Home Page'),
         );
-      }
+      },
     );
   }
 }
@@ -57,18 +57,16 @@ Change the theme like this:
 
 ```dart
   void changeBrightness() {
-    DynamicTheme.of(context).setBrightness(Theme.of(context).brightness == Brightness.dark? Brightness.light: Brightness.dark);
+    DynamicThemeNullsafe.of(context).toggleThemeMode();
   }
 
   void changeColor() {
-    DynamicTheme.of(context).setThemeData(new ThemeData(
-        primaryColor: Theme.of(context).primaryColor == Colors.indigo? Colors.red: Colors.indigo
-    ));
+    DynamicThemeNullsafe.of(context).setThemeMode(ThemeMode.dark);
   }
 
 ```
 
-When changing the brightness with `setBrightness`, it is additionally stored in the shared preferences.
+When changing the ThemeMode with `ThemeMode`, it is additionally stored in the shared preferences.
 
 ## Getting Started
 
