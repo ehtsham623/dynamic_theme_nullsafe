@@ -7,7 +7,8 @@ extension on Brightness {
 }
 
 class BrightnessSwitcherDialog extends StatelessWidget {
-  const BrightnessSwitcherDialog({Key? key, required this.onSelectedTheme}) : super(key: key);
+  const BrightnessSwitcherDialog({Key? key, required this.onSelectedTheme})
+      : super(key: key);
 
   final ValueChanged<ThemeMode> onSelectedTheme;
 

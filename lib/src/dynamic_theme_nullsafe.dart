@@ -176,7 +176,8 @@ class DynamicThemeNullsafeState extends State<DynamicThemeNullsafe> {
   Future<ThemeMode> _getThemeMode() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     // Gets the ThemeMode stored in prefs or returns the [defaultThemeMode].
-    return prefs.getString(_sharedPreferencesKey)?.toThemeMode() ?? widget.defaultThemeMode;
+    return prefs.getString(_sharedPreferencesKey)?.toThemeMode() ??
+        widget.defaultThemeMode;
   }
 
   @override

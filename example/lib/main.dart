@@ -98,7 +98,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void changeColor() {
     DynamicThemeNullsafe.of(context).setThemeData(
       ThemeData(
-        primaryColor: Theme.of(context).primaryColor == Colors.indigo ? Colors.red : Colors.indigo,
+        primaryColor: Theme.of(context).primaryColor == Colors.indigo
+            ? Colors.red
+            : Colors.indigo,
       ),
     );
   }
