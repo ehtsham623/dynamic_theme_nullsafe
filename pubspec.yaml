@@ -1,5 +1,5 @@
 name: dynamic_theme_nullsafe
-description: Changes the theme during runtime, also presists brightness settings across restarts
+description: dynamic_theme_nullsafe is easy-to-use for implementing dynamic theme with null safety, including support for light and dark theme modes and persistent choice.
 version: 1.0.5
 homepage: https://github.com/ehtsham623/dynamic_theme_nullsafe
 
